@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<head>
+    <title>Прив'язка v-html</title>
+</head>
+
+<body>
+    <!--HTML - директива, яка оновлює властивість innerHTML того елемента, до якого вона прив'язана. -->
+    <div id="appl">
+        <h3>{{path}}</h3>
+        <h3 v-html="path"></h3>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+            var sample = new Vue({
+                el: '#appl',
+                data: {
+                    path: '<a href="http://google.com">Google</a>'
+
+                }
+            });
+    </script>
+</body>
+</html>

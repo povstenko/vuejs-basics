@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>Декларативна прив'язка</title>
+    </head>
+    <body>
+            <!-- Декларативні прив'язки - створюються за допомогою директив.
+                 Вбудовані директиви Vue.js починаються з префіксу 'v-' -->
+            <div id="appl">
+                <p v-text="city"></p>
+            </div>
+            <script src="../vue.js"></script>
+            <script>
+                 var sample = new Vue({
+                    el: '#appl',
+                    data: {
+                        city: "London"
+                    }
+                });
+            </script>
+    </body>
+</html>

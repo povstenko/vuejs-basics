@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Обробники натискання клавіш</title>
+</head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+<body>
+    <div class="container">
+        <br />
+        <div id="app">
+            <form class="form-horizontal" v-on:submit.prevent>
+                <div class="input-group">
+                    <input class="form-control" type="search" v-model="search" v-on:keydown="onKeyDown" v-on:keypress="onKeyPress"
+                        v-on:keyup="onKeyUp" v-on:keyup.enter="executeSearch" />
+                    <button type="button" v-on:click="executeSearch" class="btn btn-primary">Пошук</button>
+                </div>
+
+                <br />
+                <div class="form-group">
+                    <label for="logTextarea">Журнал подій (<a href="#" v-on:click="clearHistory">Очистити</a>)</label>
+                    <textarea class="form-control" v-model="history" rows="15"></textarea>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../vue.js"></script>
+    <script>
+        var sample = new Vue({
+            el: '#app',
+            data: {
+                search: '',
+                history: ''
+            },
+            methods: {
+                // Назву клавіші можна взнати за допомогою властивості key. Код клавіші - keyCode, аналогічно JS.
+                onKeyDown: function (e) {
+                    var code = e.keyCode;
+                    this.history += 'Зажата клавіша: "' + e.key + '" (' + code + ')\n';
+                },
+                onKeyUp: function (e) {
+                    var code = e.keyCode;
+                    this.history += 'Відпущена клавіша: "' + e.key + '" (' + code + ')\n';
+                },
+                onKeyPress: function (e) {
+                    var code = e.keyCode;
+                    this.history += 'Символьна клавіша: "' + e.key + '" (' + code + ')\n';
+                },
+                executeSearch: function (e) {
+                    if (this.search) {
+                        this.history += 'Кнопка пошуку була натиснута. Запит "' + this.search + '".\n';
+                    }
+                },
+                clearHistory: function () {
+                    this.history = '';
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

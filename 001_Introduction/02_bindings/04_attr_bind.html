@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Прив'язка атрибутів</title>
+</head>
+<body>
+    <div id="appl">
+        <!--Прив'язка v-bind приймає значення атрибута елемента -->
+        <h2 v-text="header" v-bind:style="firstStyle"></h2>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+            var sample = new Vue({
+                el: '#appl',
+                data: {
+                    header: 'Hello from Vue!!!',
+                    firstStyle: {
+                        color: 'blue',
+                        fontFamily: 'Verdana',
+                        textAlign: 'center',
+                        border: '2px solid red'
+                    },
+                 }
+            });
+    </script>
+</body>
+</html>

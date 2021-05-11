@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Привязка до JS об'єкта</title>
+    <style>
+        .color {
+            color: blue;
+            background-color: antiquewhite;
+        }
+
+        .size {
+            font-family: 'Verdana';
+            font-size: 18px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="appl">      
+        <!--Використання об'єкта JS. Ім'я кожної властивості - назва класу.
+            Значення - true/false - добавляє/забирає даний клас з елемента-->
+        <h1 v-text="userName" v-bind:class='{"size":true, "color":true}'></h1>
+        <!--Динамічна зміна кольору елемента-->
+        <h1 v-text="userName" v-bind:class='{"color":flag, "size":true}'></h1>
+    </div>
+    <script src="../vue.js"></script>
+      <script>        
+            var sample = new Vue({
+                el: '#appl',
+                data: {
+                    userName: 'Homer',
+                    flag:false
+                }
+            });
+        
+    </script>
+</body>
+</html>

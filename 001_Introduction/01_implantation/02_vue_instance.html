@@ -1,0 +1,21 @@
+﻿<html>
+<head>
+    <title>Добавлення екземпляру Vue</title>
+</head>
+<body>
+    <div id="appl">
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo veniam necessitatibus, animi rerum dolores, exercitationem sint modi dolorum nulla unde voluptate nihil magnam quos illum eos ea aliquid quas eveniet!</p>
+        {{x}}
+        <br />
+    </div>
+
+    <script src="../vue.js"></script>
+
+    <script>
+            var sample = new Vue({
+                el: "#appl",    // Прив'язка через CSS селектор
+                data: { x: 10 }
+            });
+        </script>
+</body>
+</html>

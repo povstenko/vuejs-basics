@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Створення об'єкта data</title>
+</head>
+<body>
+    <div id="appl">
+        <h2>{{path}}</h2>
+        <!--Вивід на екран цілого об'єкта data-->
+        <h2>{{$data}}</h2>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+            var sample = new Vue({
+                el: '#appl',
+                data: {
+                    path: 'google.com'
+                }
+            });
+    </script>
+</body>
+</html>

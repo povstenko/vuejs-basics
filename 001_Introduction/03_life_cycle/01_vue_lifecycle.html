@@ -1,0 +1,70 @@
+﻿<html>
+
+<head>
+    <title>Приклад життєвого циклу об'єкта Vue</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div id="appl">
+            <p>Завантаження даних в консоль</p>
+
+            Лічильник кількості оновлень: <span>{{ counter }}</span>
+            <br />
+            <button class="btn btn-success" v-on:click="updateClick">Оновити</button>
+            <br />
+            <br />
+        </div>
+
+        <button id="destroyClick" class="btn btn-danger">Видалити цикл</button>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        window.onload = function () {
+
+            var sample = new Vue({
+                el: '#appl',
+                data: {
+                    counter: 0
+                },
+                methods: {
+                    updateClick: function () {
+                        this.counter = this.counter + 1;
+                    }
+                },
+                beforeCreate: function () {
+                    console.log('Початок створення');
+                },
+                created: function () {
+                    console.log('Створений екземпляр');
+                },
+                beforeMount: function () {
+                    console.log('Початок підключення');
+                },
+                mounted: function () {
+                    console.log('Підключення завершено');
+                },
+                beforeUpdate: function () {
+                    console.log('Початок оновлення');
+                },
+                updated: function () {
+                    console.log('Оновлений екземпляр');
+                },
+                beforeDestroy: function () {
+                    console.log('Початок видалення');
+                },
+                destroyed: function () {
+                    console.log('Видалений екземпляр');
+                }
+            });
+            document.getElementById('destroyClick').addEventListener('click', function () {
+                sample.$destroy();
+            });
+        }
+    </script>
+
+</body>
+
+</html>

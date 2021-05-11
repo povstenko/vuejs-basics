@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>Семантична прив'язка</title>
+    </head>
+    <body>
+        <p>Приклад роботи семантичної привя'зки</p>
+        <div id="appl">
+            <p>{{name}}</p>
+        </div>
+        <script src="../vue.js"></script>
+        <script type="text/javascript">
+                var sample = new Vue({
+                    el: '#appl',
+                    data: {
+                        name: 'Anna'
+                    }
+                });
+        </script>
+    </body>
+</html>
